@@ -1,6 +1,6 @@
 package ru.vsu.csf;
 
-import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Player {
 
@@ -14,7 +14,7 @@ public class Player {
     }
 
     public Player(String name) {
-        this(name, new Random().nextInt(21)+5);
+        this(name, ThreadLocalRandom.current().nextInt(21)+5);
     }
 
     public int getMarblesCount() {
@@ -22,7 +22,7 @@ public class Player {
     }
 
     public void bet() {
-        bet = new Random().nextInt(marblesCount)+1;
+        bet = ThreadLocalRandom.current().nextInt(marblesCount)+1;
 //        System.out.println("Bet "+name+" "+bet);
     }
 
